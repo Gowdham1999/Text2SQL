@@ -1,0 +1,3 @@
+streamlit
+google-generativeai
+python-dotenv #For loading environment variables
