@@ -20,9 +20,6 @@ def get_response(question,prompt):
 if 'chat_history' not in st.session_state:
     st.session_state['chat_history'] = []
 
-st.title('Text-SQL Bot')
-st.sidebar.title("Chat History")
-
 # To retreive query from db
 def read_sql_query(sql_query,db):
    connect = sqlite3.connect(db)
@@ -49,10 +46,14 @@ prompt=[
     """
 ]
 
+# Streamlit
+st.set_page_config(page_title='Text2SQL')
+st.title('Text2SQL')
+st.sidebar.title("Chat History")
 st.header('Bot to Retrive SQL Data')
-question = st.text_input("A",key='input_question',label_visibility='hidden')
 
-submit = st.button('Retrive SQL')
+question = st.text_input("A",key='input_question',label_visibility='hidden')
+submit = st.button('Retrieve SQL')
 
 if submit:
    response = get_response(question,prompt[0])
